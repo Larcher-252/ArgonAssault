@@ -8,8 +8,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float xRange = 20f;
     [SerializeField] float yMax = 7f;
 
+    private void Update()
+    {
+        ProcessRotation();
+        ProcessTranslation();
+    }
+
+    void ProcessRotation()
+    {
+        transform.localRotation = Quaternion.Euler(-30f, 30f, 0f);
+    }
+
     // Update is called once per frame
-    void Update()
+    void ProcessTranslation()
     {
         float xThrow = Input.GetAxis("Horizontal");
         float yThrow = Input.GetAxis("Vertical");
